@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoramento de Árbitros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        .container { max-width: 900px; }
+        h1, h2 { color: #0d6efd; margin-top: 30px; }
+        .table-container { margin-top: 15px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">🏆 Monitoramento de Padrões de Árbitros</h1>
+        <p class="lead text-center">Análise de comportamento baseada em dados de jogos simulados.</p>
+        
+        <hr class="my-4">
+
+        <h2>📊 Padrão Geral por Árbitro</h2>
+        <p>Média de cartões total por jogo apitado. **Maior média = mais rigoroso**.</p>
+        <div class="table-container">
+            {{ analise_geral_html | safe }}
+        </div>
+        
+        <hr>
+
+        <h2>📺 Frequência de Uso do VAR</h2>
+        <p>Percentual de jogos em que o árbitro consultou o VAR.</p>
+        <div class="table-container">
+            {{ analise_var_html | safe }}
+        </div>
+        
+        <hr>
+
+        <h2>⚖️ Análise de Viés para '{{ time_alvo }}'</h2>
+        <p>Média de cartões total em jogos onde o {{ time_alvo }} esteve presente.</p>
+        <div class="table-container">
+            {{ analise_vies_html | safe }}
+        </div>
+        
+    </div>
+</body>
+</html>
